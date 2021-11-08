@@ -64,6 +64,9 @@ void merge(char* ch, int* numb, zip_ret_t* rets[], int nthread, bool first) {
 	        
 	for (int i=0; i < nthread; i++) {
 		for (int j = 0; j <= rets[i]->n; j++) {
+			if (rets[i]->val[j] == '\0'){
+				continue;
+			}
 			if ((*ch) == rets[i]->val[j]) {
 				(*numb) += rets[i]->num[j]; 
 			} else {
